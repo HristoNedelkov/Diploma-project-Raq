@@ -25,3 +25,25 @@ const posts = [
     description: "Предлагаме ви екстериорно заснемане на хотели, ресторанти, сгради, строежи и други видове обекти,заснемане на всякакви природни участъци и други открити площи и най-новата ни опция - 360° снимки и видео. При въпроси може да се свържете с нас на посочените в страница КОНТАКТИ координати или да ни откриете и пишете в социалните мрежи."
   }
 ];
+
+const card = ({ name, imageSrc, description, price }) => {
+  return `
+  <div id="container">
+  <div class="product-details">
+  <h1>${name}</h1>
+  <p class="information">${description}</p>
+  <div class="control">
+  <button class="btn">
+  <span class="price">${price ? price : "999"} $ </span>
+  <span class="shopping-cart">
+  <i class="fa fa-shopping-cart" aria-hidden="true"></i
+  ></span>
+  <span class="buy">Buy Now</span>
+  </button>
+  </div>
+  </div>
+  <div class="product-image">
+  <img src="../Images/${imageSrc}" alt="Omar Dsoky" />
+  </div>
+  </div>`;
+};
