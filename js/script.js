@@ -5,10 +5,7 @@ const postBox = document.getElementsByClassName("posts")[0];
 btn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  postBox.innerHTML =
-    input.value != ""
-      ? '<h1 id="toq-tekst">We cannot find any ads including ' + input.value
-      : "";
+  postBox.innerHTML = "";
   for (const el of posts) {
     let currElName = el.name.split(" ");
     if (currElName.includes(input.value)) {
@@ -17,8 +14,14 @@ btn.addEventListener("click", (e) => {
       console.log("we left " + el.name);
     }
   }
+  if (postBox.innerHTML == "") {
+    postBox.innerHTML =
+      '<h1 id="toq-tekst">We cannot find any ads including ' + input.value;
+  }
 });
-
-for (const el of posts) {
-  postBox.innerHTML += card(el);
+function showAll() {
+  for (const el of posts) {
+    postBox.innerHTML += card(el);
+  }
 }
+showAll();
